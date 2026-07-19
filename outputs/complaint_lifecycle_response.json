@@ -1,0 +1,17 @@
+{
+  "id": 1001,
+  "userId": 102,
+  "title": "Lab Projector Failure",
+  "description": "The overhead projector in Room 402 turns off automatically after 5 minutes of usage.",
+  "category": "FACILITY",
+  "priority": "HIGH",
+  "status": "CLOSED",
+  "createdAt": "2026-07-19T17:16:53.589448400Z",
+  "updatedAt": "2026-07-19T17:22:11.104253100Z",
+  "assignee": 101,
+  "comments": [
+    {
+      "text": "Confirmed. The projector is working perfectly fine now. Thank you!"
+    }
+  ]
+}

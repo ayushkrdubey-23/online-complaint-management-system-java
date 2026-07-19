@@ -1,0 +1,77 @@
+### STEP 1: LOGIN AS STANDARD USER
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "user@example.com",
+  "password": "user"
+}
+
+### ==========================================
+### STEP 2: CREATE A COMPLAINT 
+### Paste the token from Step 1 response into X-Auth below
+### ==========================================
+POST http://localhost:8080/api/complaints
+X-Auth: fpKS2ivDhboiIldsXZ6mpmOQLGmdeiT1
+Content-Type: application/json
+
+{
+  "title": "Lab Projector Failure",
+  "description": "The overhead projector in Room 402 turns off automatically after 5 minutes of usage.",
+  "category": "FACILITY",
+  "priority": "HIGH"
+}
+
+### ==========================================
+### STEP 3: LOGIN AS ADMINISTRATOR
+### We need an Admin token to assign and resolve complaints
+### ==========================================
+POST http://localhost:8080/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "admin@example.com",
+  "password": "admin"
+}
+
+### ==========================================
+### STEP 4: ASSIGN COMPLAINT TO ADMIN (ADMIN ONLY)
+### Paste the token from Step 3 response into X-Auth below
+### ==========================================
+PATCH http://localhost:8080/api/complaints/1001/assign
+X-Auth: Mf6fgB3OiWcOTq0BDKFeCC7zGv83ffLE
+Content-Type: application/json
+
+{
+  "assigneeId": 101
+
+}
+###Step 5
+PATCH http://localhost:8080/api/complaints/1001/status
+X-Auth: Mf6fgB3OiWcOTq0BDKFeCC7zGv83ffLE
+Content-Type: application/json
+
+{
+  "status": "RESOLVED"
+}
+
+### Step 6
+
+POST http://localhost:8080/api/complaints/1001/comments
+X-Auth: Mf6fgB3OiWcOTq0BDKFeCC7zGv83ffLE
+Content-Type: application/json
+
+{
+  "text": "Confirmed. The projector is working perfectly fine now. Thank you!"
+}
+
+### Step 7
+PATCH http://localhost:8080/api/complaints/1001/status
+X-Auth: Mf6fgB3OiWcOTq0BDKFeCC7zGv83ffLE
+Content-Type: application/json
+
+{
+  "status": "CLOSED"
+}
+
+###THANK you to see this project

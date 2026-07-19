@@ -1,0 +1,7 @@
+TomcatWebServer : Tomcat started on port 8080 (http) with context path ''
+INFO 23212 --- [           main] demo.ComplaintApplication  : Started ComplaintApplication in 5.63 seconds
+>>> Core System Data Seeded: admin@example.com (admin) & user@example.com (user) <<<
+INFO 23212 --- [nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+INFO 23212 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+INFO 23212 --- [nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+INFO 23212 --- [nio-8080-exec-2] demo.controller.ComplaintController     : Context path intercepted request mapping matching /api/complaints/1001/status
